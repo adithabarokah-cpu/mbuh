@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hadiah kecil dari adit ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Sacramento&display=swap');
+
+        body {
+            background-color: #fff0f3;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .heart {
+            position: absolute;
+            background-color: #ff4d6d;
+            display: inline-block;
+            height: 20px;
+            margin: 0 10px;
+            position: relative;
+            top: 0;
+            transform: rotate(-45deg);
+            width: 20px;
+            animation: heart-fall 5s linear infinite;
+        }
+
+        .heart:before, .heart:after {
+            content: "";
+            background-color: #ff4d6d;
+            border-radius: 50%;
+            height: 20px;
+            position: absolute;
+            width: 20px;
+        }
+
+        .heart:before { top: -10px; left: 0; }
+        .heart:after { left: 10px; top: 0; }
+
+        @keyframes heart-fall {
+            0% { transform: translateY(-10vh) rotate(-45deg) scale(0.5); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(-45deg) scale(1.2); opacity: 0; }
+        }
+
+        .floating-bear {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        #no-btn {
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        #yes-btn {
+            transition: transform 0.3s ease;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="heart-container" class="fixed inset-0 pointer-events-none"></div>
+
+    <div id="main-card" class="text-center p-8 bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border-4 border-pink-200 z-10 max-w-sm w-full mx-4 relative transition-all duration-500">
+        
+        <!-- Konten Utama (Tanya) -->
+        <div id="content-box">
+            <div class="flex justify-center mb-6">
+                <img id="bear-img-1" 
+                     src="https://i.pinimg.com/736x/7b/29/fe/7b29fe3c2b2a5d48bee64a55f770d90a.jpg" 
+                     alt="Beruang Minta Valentine" 
+                     class="w-48 h-48 object-contain floating-bear rounded-2xl">
+            </div>
+
+            <h1 id="main-text" class="text-3xl font-bold text-pink-600 mb-8 leading-tight">
+                Valentine sama aku yuk? ❤️
+            </h1>
+
+            <div class="flex flex-row items-center justify-center gap-6 h-24">
+                <button id="yes-btn" 
+                        class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg z-50 active:scale-95">
+                    YES!
+                </button>
+                
+                <button id="no-btn" 
+                        class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-full shadow-md">
+                    NO
+                </button>
+            </div>
+        </div>
+
+        <!-- Konten Berhasil (Gambar Kedua) -->
+        <div id="success-box" class="hidden">
+            <div class="flex justify-center mb-6">
+                <img src="https://i.pinimg.com/736x/51/be/1c/51be1c5b00efb1616e58fb96d2a42cb8.jpg" 
+                     alt="Beruang Bahagia" 
+                     class="w-52 h-52 object-contain rounded-2xl">
+            </div>
+            <h2 class="text-4xl font-bold text-pink-600 mb-2" style="font-family: 'Sacramento', cursive;">Yaaaay! ❤️</h2>
+            <p class="text-gray-600 px-2">Nah gitu dong sayangkuuhh! <br> janlup bawain coklat se truk :P</p>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const contentBox = document.getElementById('content-box');
+        const successBox = document.getElementById('success-box');
+        const heartContainer = document.getElementById('heart-container');
+        const mainCard = document.getElementById('main-card');
+
+        let yesScale = 1;
+        const noTexts = ["eaaa:v", "Gabisa diklik :P", "hmmm", "Kejar aku dong!", "Hampir kena!", "Duh susah ya?", "Wlee gak kena!", "ngapain??"];
+
+        // Fungsi membuat hati berjatuhan
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+            heartContainer.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+        // Loop hati berjatuhan
+        setInterval(createHeart, 400);
+
+        // Fungsi menggerakkan tombol NO
+        function moveNoButton() {
+            const padding = 100;
+            const x = (Math.random() * (window.innerWidth - padding * 2)) - (window.innerWidth / 2) + padding / 2;
+            const y = (Math.random() * (window.innerHeight - padding * 2)) - (window.innerHeight / 2) + padding / 2;
+            
+            const limitedX = Math.max(Math.min(x, window.innerWidth/3), -window.innerWidth/3);
+            const limitedY = Math.max(Math.min(y, window.innerHeight/3), -window.innerHeight/3);
+
+            noBtn.style.transform = `translate(${limitedX}px, ${limitedY}px)`;
+            noBtn.textContent = noTexts[Math.floor(Math.random() * noTexts.length)];
+
+            // Tombol YES membesar secara paksa
+            if (yesScale < 4) {
+                yesScale += 0.25;
+                yesBtn.style.transform = `scale(${yesScale})`;
+            }
+        }
+
+        noBtn.addEventListener('mouseover', moveNoButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveNoButton();
+        });
+
+        // Event saat tombol YES diklik
+        yesBtn.addEventListener('click', () => {
+            // Animasi transisi konten
+            contentBox.style.opacity = '0';
+            setTimeout(() => {
+                contentBox.classList.add('hidden');
+                successBox.classList.remove('hidden');
+                successBox.classList.add('fade-in');
+                
+                // Tambahkan banyak hati untuk perayaan
+                for(let i=0; i<50; i++) {
+                    setTimeout(createHeart, i * 50);
+                }
+            }, 300);
+        });
+    </script>
+</body>
+</html>
