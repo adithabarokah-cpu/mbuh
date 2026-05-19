@@ -176,7 +176,8 @@
         <ul id="taskList"></ul>
 
         <div class="menu-rahasia" id="secretMenu">
-            <button class="btn-rahasia" onclick="alert('Membuka pesan rahasia...')">Pesan Rahasia</button>
+            <button class="btn-rahasia" onclick="jalankanPesanRahasiaAdit()">Pesan Rahasia</button>
+            
             <button class="btn-rahasia" onclick="alert('Membuka brankas simpenanku...')">Simpenanku</button>
             <button class="btn-rahasia" onclick="alert('Mau tau aja atau mau tau banget?')">Adadeh</button>
             <button class="btn-rahasia" onclick="alert('Menampilkan surat wasiat...')">Surat Wasiat</button>
@@ -186,11 +187,1504 @@
     <script>
         document.addEventListener('DOMContentLoaded', muatTugas);
 
+        // ==========================================
+        //  TEMPAT UNTUK KODE BIKINAN ADIT SENDIRI
+        // ==========================================
+        function jalankanPesanRahasiaAdit() {
+            // Taruh kode JavaScript kamu di bawah sini!
+            // Contoh default:
+            alert("<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sebuah Pesan Untukmu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-deep: #0a0406;
+            --bg-wine: #150810;
+            --bg-rose: #231016;
+            --accent-rose: #b81d47;
+            --accent-blush: #e83a6a;
+            --accent-gold: #c9a06b;
+            --accent-champagne: #f5e6d3;
+            --text-cream: #fdf8f4;
+            --text-muted: #b89aa5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-deep);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--text-cream);
+        }
+
+        /* ============================================
+           LOADING SCREEN - REDESIGNED
+           ============================================ */
+        
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: 
+                radial-gradient(ellipse at 50% 40%, rgba(184, 29, 71, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 100%, rgba(35, 16, 22, 0.95) 0%, transparent 70%),
+                linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-wine) 50%, var(--bg-deep) 100%);
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 20px;
+            max-width: 360px;
+            width: 100%;
+        }
+
+        /* Logo / Icon Section */
+        .loading-icon-wrapper {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-icon-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1.5px solid transparent;
+            border-top-color: var(--accent-gold);
+            border-right-color: var(--accent-rose);
+            animation: iconRingSpin 2s linear infinite;
+        }
+
+        .loading-icon-ring-inner {
+            position: absolute;
+            inset: 12px;
+            border-radius: 50%;
+            border: 1px solid transparent;
+            border-bottom-color: var(--accent-blush);
+            border-left-color: var(--accent-gold);
+            animation: iconRingSpin 1.5s linear infinite reverse;
+        }
+
+        @keyframes iconRingSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-heart-main {
+            font-size: 36px;
+            animation: mainHeartBeat 1.2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(232, 58, 106, 0.4));
+            z-index: 2;
+        }
+
+        @keyframes mainHeartBeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.08); }
+            60% { transform: scale(1); }
+        }
+
+        /* Text Section */
+        .loading-text-section {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .loading-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 32px;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .loading-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 13px;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            opacity: 0.85;
+        }
+
+        /* Progress Bar Section */
+        .progress-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .progress-bar-track {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(
+                90deg,
+                var(--accent-rose) 0%,
+                var(--accent-blush) 50%,
+                var(--accent-gold) 100%
+            );
+            border-radius: 4px;
+            transition: width 0.25s ease-out;
+            position: relative;
+        }
+
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        .progress-percentage {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* Status Dots */
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .status-dot.active {
+            opacity: 1;
+            animation: dotPulse 1.2s ease-in-out infinite;
+            box-shadow: 0 0 8px rgba(201, 160, 107, 0.5);
+        }
+
+        .status-dot:nth-child(1).active { animation-delay: 0s; }
+        .status-dot:nth-child(2).active { animation-delay: 0.15s; }
+        .status-dot:nth-child(3).active { animation-delay: 0.3s; }
+
+        @keyframes dotPulse {
+            0%, 80%, 100% { 
+                transform: scale(0.7); 
+                opacity: 0.5; 
+            }
+            40% { 
+                transform: scale(1.1); 
+                opacity: 1; 
+            }
+        }
+
+        .status-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-left: 6px;
+        }
+
+        /* Decorative Elements */
+        .loading-decoration {
+            position: fixed;
+            pointer-events: none;
+        }
+
+        .deco-corner {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(201, 160, 107, 0.15);
+            opacity: 0.5;
+        }
+
+        .deco-tl {
+            top: 30px;
+            left: 30px;
+            border-right: none;
+            border-bottom: none;
+            border-radius: 8px 0 0 0;
+        }
+
+        .deco-tr {
+            top: 30px;
+            right: 30px;
+            border-left: none;
+            border-bottom: none;
+            border-radius: 0 8px 0 0;
+        }
+
+        .deco-bl {
+            bottom: 30px;
+            left: 30px;
+            border-right: none;
+            border-top: none;
+            border-radius: 0 0 0 8px;
+        }
+
+        .deco-br {
+            bottom: 30px;
+            right: 30px;
+            border-left: none;
+            border-top: none;
+            border-radius: 0 0 8px 0;
+        }
+
+        /* Floating Particles in Loading */
+        .loading-particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: particleFloat 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { 
+                transform: translateY(0) translateX(0); 
+                opacity: 0.15;
+            }
+            50% { 
+                transform: translateY(-30px) translateX(15px); 
+                opacity: 0.35;
+            }
+        }
+
+        /* ============================================
+           MAIN BACKGROUND
+           ============================================ */
+
+        .bg-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .gradient-base {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% 30%, rgba(184, 29, 71, 0.1) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 70%, rgba(201, 160, 107, 0.08) 0%, transparent 55%),
+                radial-gradient(ellipse 100% 100% at 50% 100%, rgba(35, 16, 22, 0.95) 0%, transparent 70%),
+                linear-gradient(175deg, #0a0406 0%, #150810 35%, #231016 65%, #150810 100%);
+        }
+
+        .noise-overlay {
+            position: absolute;
+            inset: 0;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Floating Light Orbs */
+        .light-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            animation: orbDrift 28s ease-in-out infinite;
+        }
+
+        .orb-rose {
+            width: 380px;
+            height: 380px;
+            background: rgba(184, 29, 71, 0.18);
+            top: 5%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .orb-gold {
+            width: 300px;
+            height: 300px;
+            background: rgba(201, 160, 107, 0.12);
+            bottom: 15%;
+            right: 8%;
+            animation-delay: -12s;
+        }
+
+        .orb-deep {
+            width: 240px;
+            height: 240px;
+            background: rgba(120, 45, 75, 0.18);
+            top: 45%;
+            left: 42%;
+            animation-delay: -19s;
+        }
+
+        @keyframes orbDrift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(45px, -35px) scale(1.08); }
+            66% { transform: translate(-30px, 28px) scale(0.94); }
+        }
+
+        /* Sparkle Stars */
+        .sparkle-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-champagne);
+            border-radius: 50%;
+            box-shadow: 0 0 8px 3px rgba(245, 230, 211, 0.35);
+            animation: sparkleTwinkle 4.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkleTwinkle {
+            0%, 100% { opacity: 0.15; transform: scale(0.7); }
+            50% { opacity: 1; transform: scale(1.4); }
+        }
+
+        /* Falling Petals */
+        .petal {
+            position: fixed;
+            pointer-events: none;
+            z-index: 5;
+            opacity: 0.5;
+            animation: petalFall linear forwards;
+        }
+
+        @keyframes petalFall {
+            0% {
+                opacity: 0.5;
+                transform: translateY(-10vh) rotate(0deg) translateX(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(110vh) rotate(720deg) translateX(90px);
+            }
+        }
+
+        /* Main Layout */
+        .main-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 32px 20px;
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.8s ease 0.3s;
+        }
+
+        .main-wrapper.visible {
+            opacity: 1;
+        }
+
+        /* Decorative Line */
+        .decor-line {
+            width: 140px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .decor-line::before,
+        .decor-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(201, 160, 107, 0.5);
+        }
+
+        .decor-line::before { left: -3px; }
+        .decor-line::after { right: -3px; }
+
+        /* Card Container */
+        .love-card {
+            position: relative;
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .card-frame {
+            position: relative;
+            background: linear-gradient(
+                155deg,
+                rgba(35, 16, 22, 0.96) 0%,
+                rgba(21, 8, 16, 0.98) 100%
+            );
+            border-radius: 28px;
+            padding: 48px 38px 42px;
+            backdrop-filter: blur(30px);
+            
+            border: 1px solid rgba(201, 160, 107, 0.12);
+            box-shadow:
+                0 4px 8px rgba(0, 0, 0, 0.35),
+                0 25px 60px rgba(0, 0, 0, 0.45),
+                0 0 140px -35px rgba(184, 29, 71, 0.22),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        .card-frame::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 18%;
+            right: 18%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        /* Corner Decorations */
+        .corner-decor {
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            opacity: 0.3;
+        }
+
+        .corner-tl { top: 14px; left: 14px; border-top: 1.5px solid var(--accent-gold); border-left: 1.5px solid var(--accent-gold); border-radius: 10px 0 0 0; }
+        .corner-tr { top: 14px; right: 14px; border-top: 1.5px solid var(--accent-gold); border-right: 1.5px solid var(--accent-gold); border-radius: 0 10px 0 0; }
+        .corner-bl { bottom: 14px; left: 14px; border-bottom: 1.5px solid var(--accent-gold); border-left: 1.5px solid var(--accent-gold); border-radius: 0 0 0 10px; }
+        .corner-br { bottom: 14px; right: 14px; border-bottom: 1.5px solid var(--accent-gold); border-right: 1.5px solid var(--accent-gold); border-radius: 0 0 10px 0; }
+
+        /* Image Section */
+        .image-stage {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 34px;
+        }
+
+        .image-glow-ring {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0%,
+                rgba(184, 29, 71, 0.12) 25%,
+                rgba(201, 160, 107, 0.12) 50%,
+                transparent 75%
+            );
+            animation: ringRotate 10s linear infinite;
+            filter: blur(22px);
+        }
+
+        @keyframes ringRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .image-glow-center {
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(184, 29, 71, 0.22) 0%, transparent 70%);
+            animation: centerPulse 3.5s ease-in-out infinite;
+        }
+
+        @keyframes centerPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.18); opacity: 0.9; }
+        }
+
+        .bear-image {
+            position: relative;
+            width: 165px;
+            height: 165px;
+            object-fit: contain;
+            border-radius: 26px;
+            animation: bearGentleFloat 5.5s ease-in-out infinite;
+            filter: drop-shadow(0 18px 40px rgba(184, 29, 71, 0.32));
+            z-index: 2;
+        }
+
+        @keyframes bearGentleFloat {
+            0%, 100% { transform: translateY(0) rotate(-1.2deg); }
+            50% { transform: translateY(-14px) rotate(1.2deg); }
+        }
+
+        /* Text Content */
+        .content-text {
+            text-align: center;
+        }
+
+        .greeting-script {
+            font-family: 'Great Vibes', cursive;
+            font-size: 28px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+        }
+
+        .main-question {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 29px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--text-cream);
+            margin-bottom: 16px;
+        }
+
+        .sub-message {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 14.5px;
+            color: var(--text-muted);
+            margin-bottom: 38px;
+            line-height: 1.75;
+        }
+
+        .heart-inline {
+            display: inline-block;
+            color: var(--accent-blush);
+            animation: heartbeat 1.6s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.2); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.15); }
+            56% { transform: scale(1); }
+        }
+
+        /* Button Area */
+        .button-area {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            align-items: center;
+            min-height: 74px;
+            flex-wrap: wrap;
+        }
+
+        .btn-love {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 14.5px;
+            letter-spacing: 0.6px;
+            padding: 17px 36px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.38s ease !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-love:focus-visible {
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 3px;
+        }
+
+        /* YES Button */
+        .btn-yes {
+            background: linear-gradient(135deg, var(--accent-rose) 0%, #96153a 100%);
+            color: white;
+            box-shadow:
+                0 10px 28px rgba(184, 29, 71, 0.42),
+                0 0 55px rgba(184, 29, 71, 0.12);
+            z-index: 50;
+        }
+
+        .btn-yes:hover {
+          background: linear-gradient(135deg, var(--accent-rose) 0%, #96153a 100%);
+            color: white;
+            box-shadow:
+                0 10px 28px rgba(184, 29, 71, 0.42),
+                0 0 55px rgba(184, 29, 71, 0.12);
+            z-index: 50;
+        }
+
+        .btn-yes:hover {
+            box-shadow:
+                0 14px 38px rgba(184, 29, 71, 0.52),
+                0 0 75px rgba(184, 29, 71, 0.25);
+        }
+
+        .btn-yes:active {
+            transform: scale(0.97) !important;
+        }
+
+        .btn-yes.intensify {
+            animation: yesIntensify 0.65s ease-in-out;
+        }
+
+        @keyframes yesIntensify {
+            0% { 
+                box-shadow: 0 10px 28px rgba(184, 29, 71, 0.42), 0 0 55px rgba(184, 29, 71, 0.12);
+            }
+            50% { 
+                box-shadow: 
+                    0 10px 28px rgba(184, 29, 71, 0.72),
+                    0 0 90px rgba(184, 29, 71, 0.48),
+                    0 0 130px rgba(184, 29, 71, 0.28);
+            }
+            100% { 
+                box-shadow: 
+                    0 10px 28px rgba(184, 29, 71, 0.52),
+                    0 0 65px rgba(184, 29, 71, 0.22),
+                    0 0 35px rgba(184, 29, 71, 0.32);
+            }
+        }
+
+        /* NO Button */
+        .btn-no {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-no:hover {
+            background: rgba(184, 29, 71, 0.1);
+            color: var(--accent-blush);
+            border-color: rgba(184, 29, 71, 0.22);
+        }
+
+        .shake-animation {
+            animation: gentleShake 0.52s ease-in-out;
+        }
+
+        @keyframes gentleShake {
+            0%, 100% { transform: translateX(0); }
+            18% { transform: translateX(-6px) rotate(-1deg); }
+            36% { transform: translateX(6px) rotate(1deg); }
+            54% { transform: translateX(-4px) rotate(-0.5deg); }
+            72% { transform: translateX(4px) rotate(0.5deg); }
+            90% { transform: translateX(-2px); }
+        }
+
+        /* Hint & Counter */
+        .hint-section {
+            text-align: center;
+            margin-top: 22px;
+        }
+
+        .hint-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 13px;
+            color: var(--text-muted);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            margin-bottom: 8px;
+        }
+
+        .hint-text.visible {
+            opacity: 1;
+        }
+
+        .hint-text span {
+            color: var(--accent-gold);
+        }
+
+        .click-counter {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            color: rgba(184, 160, 107, 0.5);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Success State */
+        .success-view {
+            display: none;
+            text-align: center;
+        }
+
+        .success-view.active {
+            display: block;
+            animation: successReveal 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes successReveal {
+            from {
+                opacity: 0;
+                transform: scale(0.82) translateY(35px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .success-bear-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .success-bear {
+            width: 195px;
+            height: 195px;
+            object-fit: contain;
+            border-radius: 26px;
+            animation: bearCelebration 1.05s ease-out forwards;
+            filter: drop-shadow(0 18px 45px rgba(201, 160, 107, 0.38));
+        }
+
+        @keyframes bearCelebration {
+            0% { transform: scale(0.35) rotate(-18deg); opacity: 0; }
+            55% { transform: scale(1.12) rotate(6deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .success-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 50px;
+            background: linear-gradient(
+                135deg,
+                var(--accent-gold) 0%,
+                var(--accent-champagne) 30%,
+                var(--accent-gold) 60%,
+                var(--accent-champagne) 100%
+            );
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: goldShimmer 4.5s linear infinite;
+            margin-bottom: 18px;
+            line-height: 1.15;
+        }
+
+        @keyframes goldShimmer {
+            to { background-position: 300% center; }
+        }
+
+        .success-poem {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17.5px;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .success-note {
+            font-family: 'Playfair Display', serif;
+            font-size: 12.5px;
+            color: var(--accent-gold);
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(201, 160, 107, 0.18);
+            line-height: 1.6;
+        }
+
+        /* Floating Hearts on Success */
+        .floating-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            font-size: 22px;
+            animation: heartAscend 5.2s ease-out forwards;
+        }
+
+        @keyframes heartAscend {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-520px) scale(0.25) rotate(190deg);
+            }
+        }
+
+        /* Hidden */
+        .hidden-view {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .card-frame {
+                padding: 36px 22px 34px;
+                border-radius: 22px;
+            }
+
+            .bear-image {
+                width: 140px;
+                height: 140px;
+            }
+
+            .image-glow-ring { width: 170px; height: 170px; }
+            .image-glow-center { width: 140px; height: 140px; }
+
+            .main-question { font-size: 24px; }
+            .greeting-script { font-size: 24px; }
+            .sub-message { font-size: 13px; }
+
+            .btn-love {
+                padding: 14px 28px;
+                font-size: 13.5px;
+            }
+
+            .success-title { font-size: 40px; }
+            .success-bear { width: 155px; height: 155px; }
+            .success-poem { font-size: 15.5px; }
+
+            .corner-decor { width: 30px; height: 30px; }
+
+            /* Loading Mobile */
+            .loading-container {
+                gap: 32px;
+            }
+
+            .loading-icon-wrapper {
+                width: 85px;
+                height: 85px;
+            }
+
+            .loading-heart-main {
+                font-size: 30px;
+            }
+
+            .loading-title {
+                font-size: 26px;
+            }
+
+            .deco-corner {
+                width: 40px;
+                height: 40px;
+            }
+
+            .deco-tl, .deco-tr { top: 18px; }
+            .deco-bl, .deco-br { bottom: 18px; }
+            .deco-tl, .deco-bl { left: 18px; }
+            .deco-tr, .deco-br { right: 18px; }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.2s !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         LOADING SCREEN - REDESIGNED & RAPIH
+         ============================================ -->
+    <div class="loading-screen" id="loadingScreen">
+        
+        <!-- Corner Decorations -->
+        <div class="loading-decoration deco-corner deco-tl"></div>
+        <div class="loading-decoration deco-corner deco-tr"></div>
+        <div class="loading-decoration deco-corner deco-bl"></div>
+        <div class="loading-decoration deco-corner deco-br"></div>
+
+        <!-- Floating Particles -->
+        <div id="loadingParticles"></div>
+
+        <!-- Main Loading Container -->
+        <div class="loading-container">
+            
+            <!-- Icon Section -->
+            <div class="loading-icon-wrapper">
+                <div class="loading-icon-ring"></div>
+                <div class="loading-icon-ring-inner"></div>
+                <span class="loading-heart-main">♥</span>
+            </div>
+
+            <!-- Text Section -->
+            <div class="loading-text-section">
+                <h1 class="loading-title">Menyiapkan Sesuatu...</h1>
+                <p class="loading-subtitle">Untuk orang yang paling berarti</p>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-bar-track">
+                    <div class="progress-bar-fill" id="loadingBar"></div>
+                </div>
+                <span class="progress-percentage" id="loadingPercent">0%</span>
+            </div>
+
+            <!-- Status Indicator -->
+            <div class="status-indicator">
+                <span class="status-dot active"></span>
+                <span class="status-dot active"></span>
+                <span class="status-dot active"></span>
+                <span class="status-text">Memuat</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+
+    <!-- Background Canvas -->
+    <div class="bg-canvas">
+        <div class="gradient-base"></div>
+        <div class="noise-overlay"></div>
+        
+        <!-- Light Orbs -->
+        <div class="light-orb orb-rose"></div>
+        <div class="light-orb orb-gold"></div>
+        <div class="light-orb orb-deep"></div>
+        
+        <!-- Sparkles -->
+        <div class="sparkle-container" id="sparkleContainer"></div>
+    </div>
+
+    <!-- Petal Container -->
+    <div id="petalContainer"></div>
+
+    <!-- Main Content -->
+    <main class="main-wrapper" id="mainWrapper">
+        
+        <!-- Decorative Line -->
+        <div class="decor-line"></div>
+
+        <!-- Love Card -->
+        <article class="love-card">
+            <div class="card-frame">
+                
+                <!-- Corner Decorations -->
+                <div class="corner-decor corner-tl"></div>
+                <div class="corner-decor corner-tr"></div>
+                <div class="corner-decor corner-bl"></div>
+                <div class="corner-decor corner-br"></div>
+
+                <!-- Question View -->
+                <section id="questionView">
+                    
+                    <!-- Bear Image -->
+                    <div class="image-stage">
+                        <div class="image-glow-ring"></div>
+                        <div class="image-glow-center"></div>
+                        <img 
+                            src="https://i.pinimg.com/736x/7b/29/fe/7b29fe3c2b2a5d48bee64a55f770d90a.jpg" 
+                            alt="Beruang kecil yang menunggu jawaban"
+                            class="bear-image"
+                            draggable="false"
+                        >
+                    </div>
+
+                    <!-- Text Content -->
+                    <div class="content-text">
+                        <p class="greeting-script">Untuk satu-satunya di hatiku...</p>
+                        <h1 class="main-question">
+                            Maukah kamu menjadi<br>
+                            valentineku tahun ini? 
+                            <span class="heart-inline">♥</span>
+                        </h1>
+                        <p class="sub-message">
+                            "Karena di antara jutaan bintang di langit,<br>
+                            kamu adalah satu-satunya yang aku inginkan<br>
+                            untuk menerangi setiap malamku..."
+                        </p>
+                    </div>
+
+                    <!-- Buttons -->
+                    <nav class="button-area" aria-label="Pilihan jawaban">
+                        <button id="btnYes" class="btn-love btn-yes" aria-label="Terima ajakan valentine">
+                            Ya, Aku Mau
+                        </button>
+                        <button id="btnNo" class="btn-love btn-no" aria-label="Masih ragu">
+                            Belum yakin...
+                        </button>
+                    </nav>
+
+                    <!-- Hint Section -->
+                    <div class="hint-section">
+                        <p id="hintText" class="hint-text">
+                            Tekan <span>"Ya, Aku Mau"</span> untuk membuat hariku sempurna
+                        </p>
+                        <p id="clickCounter" class="click-counter"></p>
+                    </div>
+
+                </section>
+
+                <!-- Success View -->
+                <section id="successView" class="success-view">
+                    
+                    <div class="success-bear-wrapper">
+                        <img 
+                            src="https://i.pinimg.com/736x/51/be/1c/51be1c5b00efb1616e58fb96d2a42cb8.jpg" 
+                            alt="Beruang yang sangat bahagia"
+                            class="success-bear"
+                            draggable="false"
+                        >
+                    </div>
+
+                    <h2 class="success-title">Terima Kasih Sudah Memilihku</h2>
+                    
+                    <p class="success-poem">
+                        Kamu tidak tahu betapa bahagianya hati ini<br>
+                        mendengar jawaban itu dari bibirmu.<br><br>
+                        Mulai sekarang dan selamanya,<br>
+                        izinkan aku menjagamu dengan sepenuh hati.<br><br>
+                        Karena kamu...<br>
+                        adalah hal terindah yang pernah aku miliki.
+                    </p>
+
+                    <p class="success-note">
+                        Dan satu lagi janji kecil dariku:<br>
+                        jangan lupa bawain coklat se-truk ya, sayangkuh yang tersayang
+                    </p>
+
+                </section>
+
+            </div>
+        </article>
+
+        <!-- Bottom Decorative Line -->
+        <div class="decor-line" style="margin-top: 30px;"></div>
+
+    </main>
+
+    <script>
+        // ============================================
+        // ALL VARIABLES INITIALIZED FIRST
+        // ============================================
+        
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingBar = document.getElementById('loadingBar');
+        const loadingPercent = document.getElementById('loadingPercent');
+        const loadingParticles = document.getElementById('loadingParticles');
+        const mainWrapper = document.getElementById('mainWrapper');
+        
+        const btnYes = document.getElementById('btnYes');
+        const btnNo = document.getElementById('btnNo');
+        const questionView = document.getElementById('questionView');
+        const successView = document.getElementById('successView');
+        const hintText = document.getElementById('hintText');
+        const clickCounter = document.getElementById('clickCounter');
+        const sparkleContainer = document.getElementById('sparkleContainer');
+        const petalContainer = document.getElementById('petalContainer');
+
+        let noClickCount = 0;
+
+        // ============================================
+        // 55+ VARIASI TEKS UNTUK TOMBOL NO
+        // ============================================
+        
+        const noButtonTexts = [
+            // Awal - Lembut & Manis (1-10)
+            "Belum yakin...",
+            "Hmm, pikirkan lagi ya...",
+            "Yakin nggak mau?",
+            "Aku tunggu jawabannya...",
+            "Masih ragu kah?",
+            "Bisa dipikirin lagi?",
+            "Hati-hati memilih ya...",
+            "Aku percaya kamu...",
+            "Tolong pertimbangkan baik-baik",
+            "Kamu pasti mau kan?",
+            
+            // Sedih Menggemaskan (11-20)
+            "Jahat banget sih :(",
+            "Hatiiku hancur...",
+            "Sedih deh aku...",
+            "Kasihan aku nih",
+            "Air mataku menetes...",
+            "Kenapa kejam sekali",
+            "Aku cuma minta sedikit cinta",
+            "Mataku berkaca-kaca nih",
+            "Jangan bikin aku menangis dong",
+            "Sedihnya melebihi hujan November",
+            
+            // Memohon Lembut (21-30)
+            "Pliss pertimbangkan lagi...",
+            "Aku mohon banget...",
+            "Satu kali lagi ya...",
+            "Kasihan aku yang setia menunggu",
+            "Tolong jangan tolak aku",
+            "Aku janji akan baik",
+            "Berikan aku kesempatan...",
+            "Jangan tinggalkan aku sendiri",
+            "Aku butuh jawabanmu...",
+            "Mohon maafkan ketidaksempurnaanku",
+            
+            // Lucu & Menggemaskan (31-40)
+            "Wlee gak bisa diklik!",
+            "Kejar aku kalau mau!",
+            "Hampir kena! Eh ternyata tidak",
+            "Duh susah banget sama kamu",
+            "Kamu ini nakal ya...",
+            "Hayo jangan main-main!",
+            "Serius nih ini penting!",
+            "Ini bukan game loh!",
+            "Aduh kamu ini...",
+            "Astaga kenapa sih!",
+            
+            // Putus Asa tapi Romantis (41-50)
+            "Baiklah... aku tetap menunggu",
+            "Mungkin lain waktu ya...",
+            "Tidak apa-apa, aku mengerti",
+            "Meskipun kamu menolak, aku tetap sayang",
+            "Aku akan terus mencintaimu diam-diam",
+            "Mungkin aku belum beruntung hari ini",
+            "Suatu hari kamu pasti mengerti",
+            "Aku sabar menanti...",
+            "Cinta ini takkan pernah padam",
+            "Walau ditolak seribu kali, aku tetap di sini",
+            
+            // Bonus - Ekstra (51-55)
+            "Terakhir kali ya... pliss!",
+            "Aku mohon dengan sangat...",
+            "Ini kesempatan terakhirku...",
+            "Tolong... untukku...",
+            "Kalau masih belum juga, aku pasrah..."
+        ];
+
+        const hintTexts = [
+            "Tekan <span>Ya, Aku Mau</span> untuk membuat hariku sempurna",
+            "Hati kecilmu pasti bilang <span>Ya</span>",
+            "Coba tekan yang <span>kiri</span> saja...",
+            "Yang <span>merah muda</span> itu menunggu lho",
+            "Satu klik saja dari <span>kebahagiaan</span>",
+            "Aku yakin kamu ingin menekan <span>Ya</span>",
+            "Jangan biarkan hati kecilmu <span>menunggu</span>",
+            "Pilihlah dengan <span>hati</span>, bukan logika",
+            "<span>Kebahagiaan</span> ada di sebelah kiri",
+            "Tombol <span>Ya</span> semakin bersinar untukmu"
+        ];
+
+        const heartEmojis = ['❤️', '💕', '💖', '💗', '✨', '🌹', '💝', '💘', '🌸'];
+
+        // ============================================
+        // CREATE LOADING PARTICLES
+        // ============================================
+        
+        function createLoadingParticles() {
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'loading-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = (Math.random() * 8) + 's';
+                particle.style.animationDuration = (7 + Math.random() * 4) + 's';
+                
+                const size = Math.random() * 2 + 1;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                loadingParticles.appendChild(particle);
+            }
+        }
+
+        // ============================================
+        // LOADING SCREEN LOGIC
+        // ============================================
+        
+        function runLoadingSequence() {
+            let progress = 0;
+            const duration = 3200; // 3.2 seconds
+            const intervalTime = 35;
+            const increment = 100 / (duration / intervalTime);
+
+            const loadingInterval = setInterval(() => {
+                progress += increment + (Math.random() * 0.4);
+                
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(loadingInterval);
+                    
+                    setTimeout(() => {
+                        loadingScreen.classList.add('hidden');
+                        mainWrapper.classList.add('visible');
+                        
+                        startAmbientEffects();
+                    }, 450);
+                }
+                
+                loadingBar.style.width = progress + '%';
+                loadingPercent.textContent = Math.round(progress) + '%';
+            }, intervalTime);
+        }
+
+        // ============================================
+        // SPARKLE BACKGROUND
+        // ============================================
+        
+        function createSparkles() {
+            const count = window.innerWidth < 480 ? 45 : 75;
+            
+            for (let i = 0; i < count; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = (Math.random() * 4.5) + 's';
+                sparkle.style.animationDuration = (3.5 + Math.random() * 2) + 's';
+                
+                const size = Math.max(2, Math.random() * 2.5 + 1);
+                sparkle.style.width = size + 'px';
+                sparkle.style.height = size + 'px';
+                
+                sparkleContainer.appendChild(sparkle);
+            }
+        }
+
+        // ============================================
+        // FALLING PETALS
+        // ============================================
+        
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            
+            const petalTypes = ['🌸', '🌹', '💮', '🏵️'];
+            petal.innerHTML = petalTypes[Math.floor(Math.random() * petalTypes.length)];
+            petal.style.fontSize = (Math.random() * 11 + 9) + 'px';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (Math.random() * 6 + 9) + 's';
+            petal.style.opacity = Math.random() * 0.45 + 0.25;
+            
+            petalContainer.appendChild(petal);
+            
+            setTimeout(() => {
+                if (petal.parentNode) {
+                    petal.remove();
+                }
+            }, 16000);
+        }
+
+        // ============================================
+        // FLOATING HEART BURST
+        // ============================================
+        
+        function createHeartBurst(x, y, count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                    
+                    const offsetX = (Math.random() - 0.5) * 160;
+                    const offsetY = (Math.random() - 0.5) * 110;
+                    
+                    heart.style.left = (x + offsetX) + 'px';
+                    heart.style.top = (y + offsetY) + 'px';
+                    heart.style.fontSize = (Math.random() * 18 + 14) + 'px';
+                    heart.style.animationDuration = (Math.random() * 2.2 + 3.2) + 's';
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 5800);
+                }, i * 55);
+            }
+        }
+
+        // ============================================
+        // CELEBRATION EFFECT
+        // ============================================
+        
+        function triggerCelebration() {
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            createHeartBurst(centerX, centerY, 45);
+
+            setTimeout(() => {
+                createHeartBurst(centerX - 160, centerY - 110, 22);
+                createHeartBurst(centerX + 160, centerY - 110, 22);
+            }, 320);
+
+            setTimeout(() => {
+                createHeartBurst(centerX, centerY - 160, 28);
+            }, 650);
+
+            let celebrationInterval = setInterval(() => {
+                const randomX = Math.random() * window.innerWidth;
+                const randomY = window.innerHeight * 0.55 + Math.random() * (window.innerHeight * 0.35);
+                createHeartBurst(randomX, randomY, 3);
+            }, 180);
+
+            setTimeout(() => clearInterval(celebrationInterval), 9000);
+
+            let fastPetalInterval = setInterval(createPetal, 120);
+            setTimeout(() => clearInterval(fastPetalInterval), 6500);
+        }
+
+        // ============================================
+        // AMBIENT EFFECTS STARTER
+        // ============================================
+        
+        function startAmbientEffects() {
+            setInterval(createPetal, 2800);
+            
+            for (let i = 0; i < 7; i++) {
+                setTimeout(createPetal, i * 350);
+            }
+        }
+
+        // ============================================
+        // NO BUTTON INTERACTION
+        // ============================================
+        
+        function handleNoInteraction(event) {
+            noClickCount++;
+            
+            btnNo.classList.remove('shake-animation');
+            void btnNo.offsetWidth;
+            btnNo.classList.add('shake-animation');
+            
+            const textIndex = Math.min(noClickCount - 1, noButtonTexts.length - 1);
+            btnNo.textContent = noButtonTexts[textIndex];
+            
+            btnYes.classList.remove('intensify');
+            void btnYes.offsetWidth;
+            btnYes.classList.add('intensify');
+            
+            if (noClickCount >= 1) {
+                hintText.classList.add('visible');
+                
+                const hintIndex = Math.min(noClickCount - 1, hintTexts.length - 1);
+                hintText.innerHTML = hintTexts[hintIndex];
+            }
+            
+            if (noClickCount > 10) {
+                clickCounter.textContent = `Kamu sudah menekan ${noClickCount} kali...`;
+                clickCounter.style.opacity = '1';
+            } else if (noClickCount > 5) {
+                clickCounter.textContent = `${noClickCount}x diklik`;
+                clickCounter.style.opacity = '0.7';
+            } else {
+                clickCounter.textContent = '';
+            }
+
+            const rect = btnNo.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            createHeartBurst(x, y, 6);
+        }
+
+        // ============================================
+        // SHOW SUCCESS VIEW
+        // ============================================
+        
+        function showSuccessView() {
+            questionView.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+            questionView.style.opacity = '0';
+            questionView.style.transform = 'scale(0.91)';
+            
+            setTimeout(() => {
+                questionView.classList.add('hidden-view');
+                successView.classList.add('active');
+                triggerCelebration();
+            }, 550);
+        }
+
+        // ============================================
+        // EVENT LISTENERS
+        // ============================================
+        
+        btnNo.addEventListener('click', handleNoInteraction);
+        
+        btnNo.addEventListener('mouseenter', function() {
+            this.style.background = 'rgba(184, 29, 71, 0.12)';
+            this.style.borderColor = 'rgba(184, 29, 71, 0.3)';
+        });
+        
+        btnNo.addEventListener('mouseleave', function() {
+            this.style.background = 'rgba(255, 255, 255, 0.05)';
+            this.style.borderColor = 'rgba(255, 255, 255, 0.09)';
+        });
+
+        btnYes.addEventListener('click', showSuccessView);
+        btnYes.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            showSuccessView();
+        });
+
+        // ============================================
+        // INITIALIZE EVERYTHING
+        // ============================================
+        
+        createLoadingParticles();
+        createSparkles();
+        runLoadingSequence();
+
+    </script>");
+            
+        }
+        // ==========================================
+
         function tambahTugas() {
             const input = document.getElementById('taskInput');
             const taskText = input.value.trim();
 
-            // CEK KATA KUNCI KHUSUS "RHS"
             if (taskText.toUpperCase() === 'RHS') {
                 aktifkanModeRahasia();
                 input.value = '';
@@ -207,7 +1701,6 @@
             input.value = '';
         }
 
-        // FUNGSI KHUSUS UBAH TEMA DAN MUNCULIN 4 TOMBOL
         function aktifkanModeRahasia() {
             document.body.classList.add('mode-rahasia');
             document.getElementById('mainContainer').classList.add('mode-rahasia');
