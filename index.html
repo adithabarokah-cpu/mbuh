@@ -1,5 +1,118 @@
-<script>
-        // Fungsi untuk memuat tugas yang tersimpan saat web pertama kali dibuka
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Interaktif Pertamaku</title>
+    <style>
+        /* --- STYLE CSS (Biar Tampilan Keren) --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebe1 0%, #d4a5ec 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .input-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        input:focus {
+            border-color: #a55eea;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #a55eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background-color: #8843d0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        li {
+            background: #f9f9f9;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid #a55eea;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .delete-btn {
+            background-color: #ff5252;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        .delete-btn:hover {
+            background-color: #b33939;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Sebut Tugasmu!</h1>
+        <div class="input-box">
+            <input type="text" id="taskInput" placeholder="Ketik rencana hari ini...">
+            <button onclick="tambahTugas()">Tambah</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        // Memuat tugas yang tersimpan saat web pertama kali dibuka
         document.addEventListener('DOMContentLoaded', muatTugas);
 
         function tambahTugas() {
@@ -31,10 +144,10 @@
         function hapusTugas(button) {
             const li = button.parentElement;
             li.remove();
-            simpanKeSimpanan(); // Update simpanan setelah dihapus
+            simpanKeSimpanan();
         }
 
-        // Fungsi untuk menyimpan semua list ke memori browser (localStorage)
+        // Menyimpan semua list ke memori browser
         function simpanKeSimpanan() {
             const ul = document.getElementById('taskList');
             const tugasArray = [];
@@ -46,7 +159,7 @@
             localStorage.setItem('daftarTugasAdit', JSON.stringify(tugasArray));
         }
 
-        // Fungsi untuk mengambil data dari memori browser
+        // Mengambil data dari memori browser
         function muatTugas() {
             const tugasTersimpan = localStorage.getItem('daftarTugasAdit');
             if (tugasTersimpan) {
@@ -57,3 +170,5 @@
             }
         }
     </script>
+</body>
+</html>
